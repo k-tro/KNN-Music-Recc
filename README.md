@@ -24,3 +24,32 @@ The dataset used in this project is sourced from Kaggle's Top Hits from Spotify 
 - Audio features (e.g., danceability, energy, loudness, etc.)
 - Explicit content flag
 
+## Workflow
+### Data Cleaning and Preprocessing
+```python
+music_data["explicit"] = music_data["explicit"].astype(int)
+```
+### Normalization
+```python
+def normalize_column(col):
+    max_d = music_data[col].max()
+    min_d = music_data[col].min()
+    music_data[col] = (music_data[col] - min_d)/(max_d - min_d)
+```
+### K-Means Clustering
+```python
+km = KMeans(n_clusters=10)
+cat = km.fit_predict(num)
+music_data['cat'] = cat
+```
+### Training and Validation
+```python
+knn5 = KNeighborsClassifier(metric='cosine', algorithm='brute', n_neighbors=5)
+```
+### Evaluation
+```python
+from sklearn.metrics import accuracy_score
+print("Accuracy with k=5", accuracy_score(y_valid, y_pred_5)*100)
+```
+
+
