@@ -12,7 +12,9 @@ This project implements a music recommender system using K-Nearest Neighbors (KN
 - Scikit-learn
 - Fuzzywuzzy
 - LIME
-- Dataset
+
+## Dataset
+
 The dataset used in this project is sourced from Kaggle's Top Hits from Spotify 2000-2019. It includes features such as:
 
 - Song title
